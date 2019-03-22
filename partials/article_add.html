@@ -1,0 +1,31 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-chart-area"></i>
+        Create New Article</div>
+    <div class="col-lg-6">
+        <form role="form" ng-submit="submitHandler()">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" ng-model="articleData.art_name" placeholder="Provide a sutiable name for the article.">
+                <input type="hidden" class="form-control" ng-model="articleData.art_status">
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="3" placeholder="Content for the article." ng-model="articleData.art_desc"></textarea>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label>Meta-Description</label>
+                <textarea class="form-control" rows="3" placeholder="Meta description for for SEO." ng-model="articleData.art_meta"></textarea>
+                <p class="help-block"></p>
+            </div>
+
+            <button type="submit" class="btn btn-success mb-3">Submit Button</button>
+            <button type="reset" class="btn btn-success mb-3">Reset Button</button>
+        </form>
+
+        <pre>list={{myWelcome}}</pre>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>

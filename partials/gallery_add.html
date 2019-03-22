@@ -1,0 +1,28 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-chart-area"></i>
+        {{title}}</div>
+    <div class="col-lg-6">
+        <form role="form">
+            <div class="form-group">
+                <label>Select Image</label>
+                <input type="file" file-model="myFile"/>
+                <img ng-if="galDataArr.gal_img!=''" width="100px" ng-src="http://localhost/learn/angular/first/upload/{{galDataArr.gal_img}}">
+            </div>
+            <div class="form-group">
+                <label>Alternative Name</label>
+                <input class="form-control" placeholder="Provide a sutiable alternative name for image." ng-model="galDataArr.gal_alt" >
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="3" placeholder="Gallery image description." ng-model="galDataArr.gal_desc"></textarea>
+                <p class="help-block"></p>
+            </div>
+
+            <button ng-click="uploadFile()" class="btn btn-success mb-3">Submit Button</button>
+            <button type="reset" class="btn btn-success mb-3">Reset Button</button>
+        </form>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>

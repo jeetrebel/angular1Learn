@@ -1,0 +1,57 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-chart-area"></i>
+        Gallery List</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button id="add-aritcle" class="btn btn-success float-right mr-3 mt-3" ui-sref="gallery_add">Add</button>
+        </div>
+    </div>
+
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Alternative</th>
+                        <th>Status</th>
+                        <th>Modified</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Alternative</th>
+                        <th>Status</th>
+                        <th>Modified</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="item in galDataArr">
+                        <td><img width="100px" ng-src="http://localhost/learn/angular/first/upload/{{item.gal_img}}"></td>
+                        <td>{{ item.gal_desc }}</td>
+                        <td>{{ item.gal_alt }}</td>
+                        <td>
+                            <span ng-if="item.gal_status == 1 "> <a href="" ng-click="changeStat($index);">Enable</a></span>
+                            <span ng-if="item.gal_status == ''|| 0 "> <a href="" ng-click="changeStat($index);">Disable</a></span>
+                        </td>
+                        <td>{{item.gal_modified | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                        <td><i class="fa fa-edit fa-fw" ng-click="edit(item.id);" title="Edit"></i> &nbsp; <i class="far fa-trash-alt"
+                                title="Delete" ng-click="del(item.id);"></i>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated {{lastMod | date:"MM/dd/yyyy 'at' h:mma"}}</div>
+</div>

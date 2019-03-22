@@ -1,0 +1,68 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-chart-area"></i>
+        Article List</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button id="add-aritcle" class="btn btn-success float-right mr-3 mt-3" ui-sref="add_article">Add</button>
+        </div>
+    </div>
+
+    <div class="text-danger wrapper text-center" ng-show="dataError">
+            {{dataError}}
+        </div>
+
+   
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Modified</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Modified</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                {{error}}
+                <tbody>
+                    <tr ng-repeat="item in articleDataArr">
+                        <td>{{ item.art_name }}</td>
+                        <td>{{ item.art_desc }}</td>
+                        <td>
+                            <span ng-if="item.art_status == 1 "> Enable </span>
+                            <span ng-if="item.art_status == ''|| 0 "> Disable</span>
+                        </td>
+                        <td>{{item.art_modified | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                        <td>
+                            <my-actions article=item></my-actions>
+                            <a ng-click="articleEdit(item.id)"><i class="fa fa-edit fa-fw" title="Edit"></i></a>
+                            &nbsp;
+                            <a ng-click="articleDel(item.id)"><i class="far fa-trash-alt" title="Delete"></i></a>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+
+<a ui-sref="article.view">Load child</a>
+
+<ui-view></ui-view>

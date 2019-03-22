@@ -1,0 +1,6 @@
+{
+    "phpformatter.arguments": [
+        "--custom-config=C:/Users/660704/Desktop/config.php_cs"
+    ],
+    "phpformatter.composer": true
+}
